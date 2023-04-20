@@ -1,0 +1,26 @@
+h3 {
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(to right, #FFD700, #FFA500);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  h3:hover {
+    background-image: linear-gradient(to right, #FFA500, #FFD700);
+  }
+
+
+
+  .custom-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+

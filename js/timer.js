@@ -1,4 +1,5 @@
 
+
 let stopwatch = {
   startTime: 0,
   elapsedTime: 0,
@@ -44,8 +45,15 @@ stopwatch.resetButton.textContent = 'Reset';
 stopwatch.startButton.addEventListener('click', () => stopwatch.start());
 stopwatch.stopButton.addEventListener('click', () => stopwatch.stop());
 stopwatch.resetButton.addEventListener('click', () => stopwatch.reset());
+// // Select the div element you want to target
+// let targetDiv = document.querySelector('#targetDiv');
+
+// // Append the stopwatch.startButton to the target div
+// targetDiv.appendChild(stopwatch.startButton);
 
 document.body.appendChild(stopwatch.startButton);
 document.body.appendChild(stopwatch.stopButton);
 document.body.appendChild(stopwatch.resetButton);
 document.body.appendChild(stopwatch.displayElement);
+
+
