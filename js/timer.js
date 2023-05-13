@@ -56,4 +56,57 @@ document.body.appendChild(stopwatch.stopButton);
 document.body.appendChild(stopwatch.resetButton);
 document.body.appendChild(stopwatch.displayElement);
 
+  
+let timer;
+let hours;
+let minutes;
+let totalTime;
+let startTime;
+let elapsedTime = 0;
+let isPaused = false;
+
+function startTimer() {
+  if (!isPaused) {
+    startTime = Date.now();
+  } else {
+    startTime = Date.now() - elapsedTime;
+    isPaused = false;
+  }
+  timer = setInterval(displayTime, 10);
+}
+
+function pauseTimer() {
+  clearInterval(timer);
+  elapsedTime = Date.now() - startTime;
+  isPaused = true;
+}
+
+function displayTime() {
+  let currentTime = new Date();
+  let elapsedMilliseconds = currentTime - startTime;
+  let elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
+  let elapsedMinutes = Math.floor(elapsedSeconds / 60);
+  elapsedSeconds = elapsedSeconds % 60;
+  let elapsedMillisecondsTwoDigit = elapsedMilliseconds.toString().slice(-3, -1).padStart(2, "0");
+
+  document.getElementById("timer").innerHTML = elapsedMinutes + "m " + elapsedSeconds + "s " + elapsedMillisecondsTwoDigit + "ms";
+
+  if (elapsedTime + elapsedMilliseconds >= totalTime) {
+    clearInterval(timer);
+    alert("Time is up!");
+  }
+}
+
+function setTimer() {
+  hours = parseInt(prompt("Enter the number of hours:"));
+  minutes = parseInt(prompt("Enter the number of minutes:"));
+  totalTime = (hours * 60 + minutes) * 1000 * 0.2;
+}
+
+function resetTimer() {
+  clearInterval(timer);
+  elapsedTime = 0;
+  isPaused = false;
+  document.getElementById("timer").innerHTML = "0m 0s 00ms";
+}
 
